@@ -1,13 +1,38 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
+import AppLayout from "./components/AppLayout";
+import CreateProduct from "./features/products/CreateProduct";
+import UpdateProduct from "./features/products/UpdateProduct";
+
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    errorElement: <Error />,
+
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+      {
+        path: "/products",
+        element: <ProductPage />,
+      },
+      {
+        path: "/products/create",
+        element: <CreateProduct />,
+      },
+      {
+        path: "/products/edit/:id",
+        element: <UpdateProduct />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
