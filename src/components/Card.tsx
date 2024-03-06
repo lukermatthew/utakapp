@@ -8,11 +8,10 @@ interface Product {
   cost: number;
   stock: number;
   category: string;
-  // Add more properties if needed
 }
 
 interface CardProps {
-  product: Product; // Specify the type of the product prop
+  product: Product;
 }
 
 const Card = ({ product }: CardProps) => {

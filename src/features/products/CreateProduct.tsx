@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"; // Import serverTimestamp
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import db from "../../firebase/config";
 
 const CreateProduct = () => {

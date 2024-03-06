@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { getDoc, doc, updateDoc } from "firebase/firestore"; // Import getDoc, doc, and updateDoc
+import { getDoc, doc, updateDoc } from "firebase/firestore";
 import db from "../../firebase/config";
 
 const UpdateProduct = () => {
@@ -52,11 +52,8 @@ const UpdateProduct = () => {
   };
 
   const handleSubmit = async () => {
-    // Validate form
     let formIsValid = true;
     const newErrors = { ...errors };
-
-    // Add your validation logic here
 
     setErrors(newErrors);
 
@@ -66,7 +63,7 @@ const UpdateProduct = () => {
 
     try {
       const docRef = doc(db, "products", id);
-      await updateDoc(docRef, product); // Update the document with the new product data
+      await updateDoc(docRef, product);
 
       navigate("/products");
     } catch (error) {
